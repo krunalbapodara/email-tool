@@ -1,0 +1,37 @@
+.inboxHeader{
+    position: sticky;
+    height: 90px;
+    border-bottom: 1px solid #d3dbdf;
+}
+
+.inboxHeaderIcon{
+    display: inline-block;
+    border: 1px solid #d3dbdf;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-size: 10px;
+    padding: 4px;
+}
+.inboxHeaderIcon:hover{
+    opacity: 0.8;
+    color: blue;
+    cursor: pointer;
+}
+.inboxHeaderIconRight{
+    float: right;
+}
+.inboxHeaderIconRight .inboxHeaderIcon:first-child{
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    margin-right: 0 !important;
+}
+.inboxHeaderIconRight .inboxHeaderIcon:last-child{
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    margin-right: 0 !important;
+}
+
+.inboxContent{
+    overflow: auto;
+    height: calc(100% - 120px);
+}

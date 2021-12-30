@@ -1,0 +1,59 @@
+.loginBg{
+    background-size: cover;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                       rgba(0, 0, 0, 0.5)), url('./marvel-bg.jpg');
+}
+
+.loginContainer{
+    width: 300px;
+    border-radius: 6px;
+    background-color: rgba(17, 17, 17, 0.75);
+    color:#777;
+    padding:25px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.loginTitle{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.loginContainer .ant-space{
+    width: 100% !important;
+    margin-bottom: 15px;
+}
+
+.loginContainer .ant-space:last-child{
+    margin-bottom: 0 !important;
+}
+
+.loginContainer .ant-space-item{
+    width: 100% !important;
+    text-align: center;
+}
+
+.loginContainer input{
+    color: #fff !important;
+}
+
+.loginContainer input,.ant-input-password,button {
+    background:transparent !important;
+}
+
+.loginContainer .ant-input-suffix path {
+    fill:#fff;
+}
+
+.errorMsg{
+    color: red;
+}
+
+

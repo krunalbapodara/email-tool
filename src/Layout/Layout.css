@@ -1,0 +1,56 @@
+.trigger {
+    padding: 7px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.3s;
+    background-color: #00b494;
+    border-radius: 4px;
+    color:#fff !important;
+}
+
+.trigger:hover {
+    opacity: 0.9;
+}
+
+.logo {
+    height: 64px !important;
+    background-color: #1b2429;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    line-height: 64px;
+}
+
+.navbar {
+    background: #fff !important;
+    padding : 0 20px !important;
+}
+
+.navContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.leftSide{
+    text-align: left;
+    display: inline-flex;
+}
+
+.rightSIde{
+    text-align: right;
+    display: inline-flex;
+}
+
+.rightIcon{
+    margin: 0 5px;
+}
+
+.rightIcon:hover > span{
+    cursor: pointer;
+    color:blue;
+}
+
+.rightIcon > span{
+    margin: 0 5px;
+}

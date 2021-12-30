@@ -1,0 +1,30 @@
+[
+    {
+        "id":"1",
+        "name":"Peter Parker",
+        "email":"peterparker-spiderman@mcu.com",
+        "from":"peterparker-spiderman@mcu.com",
+        "subject":"Reagrding Multiverse spell issue",
+        "to":"dr.strange@mcu.com",
+        "cc":"",
+        "body":"Please fix the spell",
+        "attachments":true,
+        "category":"work",
+        "date":"2021-12-20T15:59",
+        "isRead":true
+    },
+    {
+        "id":"2",
+        "name":"Dr. Strange",
+        "email":"dr.strange@mcu.com",
+        "from":"dr.strange@mcu.com",
+        "subject":"Re:Reagrding Multiverse spell issue",
+        "to":"peterparker-spiderman@mcu.com",
+        "cc":"marvel-universe@mcu.com",
+        "body":"Fixed. Please check your identity. No one will know you. Wait, who are you ?",
+        "attachments":false,
+        "category":"",
+        "date":"2021-12-20T14:59",
+        "isRead":true
+    }
+]

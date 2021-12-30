@@ -1,0 +1,12 @@
+[
+    {
+        "name":"Peter Parker",
+        "email":"peterparker-spiderman@mcu.com",
+        "password":"MJ@Peter"
+    },
+    {
+        "name":"Dr. Strange",
+        "email":"dr.strange@mcu.com",
+        "password":"Timestone@gone"
+    }
+]
