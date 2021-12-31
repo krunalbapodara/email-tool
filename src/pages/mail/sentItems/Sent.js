@@ -55,12 +55,15 @@ class Sent extends Component {
     componentDidMount() {
         let user = JSON.parse(localStorage.getItem('user') || '{}');
         if (user.email) {
-            let filter = mailData.filter(email => email.from === user.email);
-
+            if(!localStorage.getItem('emails')){
+                localStorage.setItem('emails', JSON.stringify(mailData));
+            }
+            
+            let filter = [];
             let localMails = JSON.parse(localStorage.getItem('emails') || '[]');
             let filterFromLocalStorage = localMails.filter(email => email.from === user.email);
             if (filterFromLocalStorage.length > 0) {
-                filter = [...filterFromLocalStorage, ...filter];
+                filter = [...filterFromLocalStorage];
             }
             this.setState({ emails: filter });
         }

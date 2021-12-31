@@ -23,3 +23,17 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+
+Mock credentials:
+
+{
+    "name":"Peter Parker",
+    "email":"peterparker-spiderman@mcu.com",
+    "password":"MJ@Peter"
+},
+{
+    "name":"Dr. Strange",
+    "email":"dr.strange@mcu.com",
+    "password":"Timestone@gone"
+}

@@ -5,6 +5,7 @@ import { InboxOutlined, MailOutlined, StarOutlined, FormOutlined, DeleteOutlined
 import './Mail.css';
 import MailRouter from './MailRouter';
 import CategoryColor from './CategoryColor';
+import mailData from '../../mocks/emails-mock.json';
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -14,6 +15,7 @@ class Mail extends Component {
         super(props);
         this.state = {
             isModalVisible: false,
+            count:0,
             activeKey: window.location.pathname,
             newMail: {
                 name: "",
@@ -33,6 +35,20 @@ class Mail extends Component {
 
     componentDidMount() {
         this.resetMailData();
+        let user = JSON.parse(localStorage.getItem('user') || '{}');
+        if (user.email) {
+            if(!localStorage.getItem('emails')){
+                localStorage.setItem('emails', JSON.stringify(mailData));
+            }
+            
+            let filter = [];
+            let localMails = JSON.parse(localStorage.getItem('emails') || '[]');
+            let filterFromLocalStorage = localMails.filter(email => email.to.includes(user.email));
+            if (filterFromLocalStorage.length > 0) {
+                filter = [...filterFromLocalStorage];
+            }
+            this.setState({ count: filter.filter(c => !c.isRead).length });
+        }
     }
 
     resetMailData = () => {
@@ -98,7 +114,7 @@ class Mail extends Component {
     }
 
     render() {
-        const { isModalVisible, newMail, activeKey } = this.state;
+        const { isModalVisible, newMail, activeKey, count } = this.state;
         return (
             <div className="mail-container">
                 <div className="mailMenu">
@@ -111,7 +127,7 @@ class Mail extends Component {
                     >
                         <Menu.Item key="/marvel/mails" onClick={() => this.setActiveKey("/marvel/mails")}>
                             <Link to="/marvel/mails">
-                                <InboxOutlined /> Inbox <span className="badge">2</span>
+                                <InboxOutlined /> Inbox <span className="badge">{count}</span>
                             </Link>
                         </Menu.Item>
                         <Divider />

@@ -14,7 +14,7 @@ const { Header } = Layout;
 const Navbar = (props) => {
     const [isLoggedOut, setIsLoggedOut] = useState(false);
     if(isLoggedOut){
-        return <Navigate to="/login"/>
+        return <Navigate to="/"/>
     }
     return (
         <Header className="navbar" style={{ padding: 0 }}>

@@ -55,23 +55,21 @@ class Inbox extends Component {
             viewData: {}
         }
     }
+
     componentDidMount() {
         let user = JSON.parse(localStorage.getItem('user') || '{}');
         if (user.email) {
-            let filter = mailData.filter(email => email.to.includes(user.email));
-
+            if(!localStorage.getItem('emails')){
+                localStorage.setItem('emails', JSON.stringify(mailData));
+            }
+            
+            let filter = [];
             let localMails = JSON.parse(localStorage.getItem('emails') || '[]');
             let filterFromLocalStorage = localMails.filter(email => email.to.includes(user.email));
             if (filterFromLocalStorage.length > 0) {
-                let temp = [];
-                filterFromLocalStorage.forEach(element => {
-                    if (filter.findIndex(e => e.id !== element.id)) {
-                        temp.push(element);
-                    }
-                });
-                filter = [...temp, ...filter];
+                filter = [...filterFromLocalStorage];
             }
-            this.setState({ emails: filter, count: filter.filter(c => c.isRead).length });
+            this.setState({ emails: filter, count: filter.filter(c => !c.isRead).length });
         }
     }
 
@@ -82,11 +80,13 @@ class Inbox extends Component {
             //update in localstorage
             emails[index].isRead = true;
             localStorage.setItem('emails', JSON.stringify(emails));
-
-            let em = [...this.state.emails];
-            let ind = em.findIndex(e => e.id === record.id);
+        }
+        let em = [...this.state.emails];
+        let ind = em.findIndex(e => e.id === record.id && !e.isRead);
+        if (ind !== -1) {
             em[ind].isRead = true;
-            this.setState({ emails: em });
+            let count = em.filter(c => c.isRead).length;
+            this.setState({ emails: em, count });
         }
         this.setState({ viewMail: true, viewData: record });
     }
@@ -94,7 +94,10 @@ class Inbox extends Component {
     render() {
         const { emails, count, viewMail, viewData } = this.state;
         if (viewMail) {
-            return <ViewMail viewData={viewData} type="inbox" onBack={() => this.setState({ viewMail: false, viewData: {} })} />
+            return <ViewMail viewData={viewData} type="inbox" onBack={() => {
+                this.setState({ viewMail: false, viewData: {} });
+                window.location.reload();
+            }} />
         }
         return (
             <div className="inboxContainer">

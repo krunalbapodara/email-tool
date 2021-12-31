@@ -8,7 +8,7 @@ import Page from './pages/Page';
 const AppRouter = (props) => {
     return (
         <Routes>
-            <Route path="/login" element={<Login/>} />
+            <Route path="/" element={<Login/>} />
             <Route path="/marvel/*" element={<Page/>} />
         </Routes>
     )
